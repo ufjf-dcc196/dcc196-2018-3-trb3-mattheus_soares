@@ -3,7 +3,7 @@ package com.example.mattheus.trabalho03dcc196;
 import java.util.ArrayList;
 
 public class Aventura {
-    private Integer id;
+    private String id;
     private String nome;
     private String descricao;
     private String forca;
@@ -19,13 +19,13 @@ public class Aventura {
     public Aventura() {
     }
 
-    public Aventura(Integer id, String nome, String descricao) {
+    public Aventura(String id, String nome, String descricao) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
     }
 
-    public Aventura(Integer id, String nome, String descricao, String forca, String destreza, String nervos, String constituicao, String mente, String synth, String sabedoria, String carisma) {
+    public Aventura(String id, String nome, String descricao, String forca, String destreza, String nervos, String constituicao, String mente, String synth, String sabedoria, String carisma) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -40,7 +40,7 @@ public class Aventura {
         this.jogadores = new ArrayList<>();
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
@@ -88,7 +88,7 @@ public class Aventura {
         return jogadores;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
