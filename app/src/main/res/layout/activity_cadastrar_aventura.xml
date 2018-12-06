@@ -90,7 +90,7 @@
 
             <EditText
                 android:id="@+id/txt_forca_aventura"
-                android:layout_width="50%"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -99,7 +99,7 @@
 
             <EditText
                 android:id="@+id/txt_destreza_aventura"
-                android:layout_width="50%"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -115,7 +115,7 @@
 
             <EditText
                 android:id="@+id/txt_nervos_aventura"
-                android:layout_width="50%"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -124,7 +124,7 @@
 
             <EditText
                 android:id="@+id/txt_const_aventura"
-                android:layout_width="50%"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -140,7 +140,7 @@
 
             <EditText
                 android:id="@+id/txt_mente_aventura"
-                android:layout_width="50%"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -149,7 +149,7 @@
 
             <EditText
                 android:id="@+id/txt_synth_aventura"
-                android:layout_width="50%"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -165,7 +165,7 @@
 
             <EditText
                 android:id="@+id/txt_sabedoria_aventura"
-                android:layout_width="50%"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -174,7 +174,7 @@
 
             <EditText
                 android:id="@+id/txt_carisma_aventura"
-                android:layout_width="50%"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"

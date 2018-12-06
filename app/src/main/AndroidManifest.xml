@@ -16,7 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastrarAventuraActivity"></activity>
+        <activity android:name=".CadastrarAventuraActivity" />
+        <activity android:name=".EditarAventuraActivity" />
+        <activity android:name=".ListarJogadoresActivity" />
+        <activity android:name=".CadastrarJogadorActivity" />
+        <activity android:name=".EditarJogadorActivity"></activity>
     </application>
 
 </manifest>
