@@ -13,8 +13,7 @@ public class AventuraDAO {
     private RPGDBHelper rpgdbHelper;
     private Cursor cursor;
 
-    private AventuraDAO() {
-    }
+    private AventuraDAO() {}
 
     public static AventuraDAO getInstance() {
         return instance;
@@ -41,9 +40,8 @@ public class AventuraDAO {
                 RPGContract.AventuraTable.COLUMN_NAME_CARISMA,
                 RPGContract.AventuraTable._ID
         };
-        String sort = RPGContract.AventuraTable._ID + " ASC";
-        cursor = db.query(RPGContract.AventuraTable.TABLE_NAME, visao,
-                null, null, null, null, sort);
+        String query = "SELECT * FROM "+RPGContract.AventuraTable.TABLE_NAME;
+        cursor = db.rawQuery(query,null);
 
         int id_Aventura_Nome = cursor.getColumnIndexOrThrow(RPGContract.AventuraTable.COLUMN_NAME_NOME);
         int id_Aventura_Descricao = cursor.getColumnIndexOrThrow(RPGContract.AventuraTable.COLUMN_NAME_DESCRICAO);
@@ -117,6 +115,21 @@ public class AventuraDAO {
         return aventura;
     }
 
+    public void insertAventura(Aventura aventura){
+        SQLiteDatabase db = rpgdbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(RPGContract.AventuraTable.COLUMN_NAME_NOME,aventura.getNome());
+        cv.put(RPGContract.AventuraTable.COLUMN_NAME_DESCRICAO,aventura.getDescricao());
+        cv.put(RPGContract.AventuraTable.COLUMN_NAME_FORCA,aventura.getForca());
+        cv.put(RPGContract.AventuraTable.COLUMN_NAME_DESTREZA,aventura.getDestreza());
+        cv.put(RPGContract.AventuraTable.COLUMN_NAME_NERVOS,aventura.getNervos());
+        cv.put(RPGContract.AventuraTable.COLUMN_NAME_CONSTITUICAO,aventura.getConstituicao());
+        cv.put(RPGContract.AventuraTable.COLUMN_NAME_MENTE,aventura.getMente());
+        cv.put(RPGContract.AventuraTable.COLUMN_NAME_SYNTH,aventura.getSynth());
+        cv.put(RPGContract.AventuraTable.COLUMN_NAME_SABEDORIA,aventura.getSabedoria());
+        cv.put(RPGContract.AventuraTable.COLUMN_NAME_CARISMA,aventura.getCarisma());
+        db.insert(RPGContract.AventuraTable.TABLE_NAME,null,cv);
+    }
 
     public void deleteAventura(Integer ID_Aventura){
         SQLiteDatabase db = rpgdbHelper.getWritableDatabase();

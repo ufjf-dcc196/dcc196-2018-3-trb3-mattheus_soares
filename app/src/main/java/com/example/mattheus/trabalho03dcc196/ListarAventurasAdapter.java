@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class ListarAventurasAdapter extends RecyclerView.Adapter<ListarAventurasAdapter.ViewHolder> {
+
     private ArrayList<Aventura> aventuras;
     private OnAventuraClickListener listener;
 
@@ -24,7 +25,14 @@ public class ListarAventurasAdapter extends RecyclerView.Adapter<ListarAventuras
         this.listener = listener;
     }
 
-    public ListarAventurasAdapter(ArrayList<Aventura>  aventuras){this.aventuras = aventuras;}
+    public void setAventuras(ArrayList<Aventura> avent){
+        this.aventuras = avent;
+        notifyDataSetChanged();
+    }
+
+    public ListarAventurasAdapter(ArrayList<Aventura>  aventuras){
+        this.aventuras = aventuras;
+    }
 
     @NonNull
     @Override
@@ -33,7 +41,7 @@ public class ListarAventurasAdapter extends RecyclerView.Adapter<ListarAventuras
         LayoutInflater inflater = LayoutInflater.from(context);
         View lstAventuraView;
         lstAventuraView = inflater.inflate(R.layout.recycle_view_aventuras, viewGroup, false);
-        ListarAventurasAdapter.ViewHolder holderView = new ListarAventurasAdapter.ViewHolder(lstAventuraView);
+        ViewHolder holderView = new ViewHolder(lstAventuraView);
         return holderView;
 
     }
