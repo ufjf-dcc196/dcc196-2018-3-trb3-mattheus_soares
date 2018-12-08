@@ -25,6 +25,20 @@ public class Aventura {
         this.descricao = descricao;
     }
 
+    public Aventura( String nome, String descricao, String forca, String destreza, String nervos, String constituicao, String mente, String synth, String sabedoria, String carisma) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.forca = forca;
+        this.destreza = destreza;
+        this.nervos = nervos;
+        this.constituicao = constituicao;
+        this.mente = mente;
+        this.synth = synth;
+        this.sabedoria = sabedoria;
+        this.carisma = carisma;
+        this.jogadores = new ArrayList<>();
+    }
+
     public Aventura(String id, String nome, String descricao, String forca, String destreza, String nervos, String constituicao, String mente, String synth, String sabedoria, String carisma) {
         this.id = id;
         this.nome = nome;

@@ -71,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public static void refresh(){
+        adapter.notifyDataSetChanged();
+    }
     @Override
     protected void onResume() {
         super.onResume();
