@@ -30,6 +30,7 @@ public class RPGDBHelper extends SQLiteOpenHelper {
         values.put(RPGContract.AventuraTable.COLUMN_NAME_SYNTH, "6");
         values.put(RPGContract.AventuraTable.COLUMN_NAME_SABEDORIA, "10");
         values.put(RPGContract.AventuraTable.COLUMN_NAME_CARISMA, "11");
+
         db.insert(RPGContract.AventuraTable.TABLE_NAME, null, values);
     }
 

@@ -25,8 +25,11 @@ public class AventuraDAO {
 
 
     public ArrayList<Aventura> getAventuras() {
+
         ArrayList<Aventura> aventuras = new ArrayList<>();
+
         SQLiteDatabase db = rpgdbHelper.getReadableDatabase();
+
         String[] visao = {
                 RPGContract.AventuraTable.COLUMN_NAME_NOME,
                 RPGContract.AventuraTable.COLUMN_NAME_DESCRICAO,
@@ -40,8 +43,8 @@ public class AventuraDAO {
                 RPGContract.AventuraTable.COLUMN_NAME_CARISMA,
                 RPGContract.AventuraTable._ID
         };
-        String query = "SELECT * FROM "+RPGContract.AventuraTable.TABLE_NAME;
-        cursor = db.rawQuery(query,null);
+        cursor = db.query(RPGContract.AventuraTable.TABLE_NAME, visao,
+                null, null, null, null, null);
 
         int id_Aventura_Nome = cursor.getColumnIndexOrThrow(RPGContract.AventuraTable.COLUMN_NAME_NOME);
         int id_Aventura_Descricao = cursor.getColumnIndexOrThrow(RPGContract.AventuraTable.COLUMN_NAME_DESCRICAO);
@@ -70,9 +73,9 @@ public class AventuraDAO {
                 aux.setCarisma(cursor.getString(id_Aventura_Carisma));
                 aventuras.add(aux);
             } while (cursor.moveToNext());
-            cursor.close();
-
         }
+        cursor.close();
+
         return aventuras;
     }
 
@@ -110,8 +113,9 @@ public class AventuraDAO {
             aventura.setSabedoria(cursor.getString(id_Aventura_Sabedoria));
             aventura.setCarisma(cursor.getString(id_Aventura_Carisma));
 
-            cursor.close();
         }
+        cursor.close();
+
         return aventura;
     }
 
@@ -153,4 +157,5 @@ public class AventuraDAO {
 
         db.update(RPGContract.AventuraTable.TABLE_NAME,cv,"_ID = ?", new String[]{String.valueOf(aventura.getId())});
     }
+
 }

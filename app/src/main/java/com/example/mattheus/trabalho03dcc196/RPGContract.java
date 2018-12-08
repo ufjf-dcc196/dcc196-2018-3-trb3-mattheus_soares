@@ -1,7 +1,6 @@
 package com.example.mattheus.trabalho03dcc196;
 
 import android.provider.BaseColumns;
-import android.widget.ExpandableListView;
 
 public class RPGContract {
     public static final String TEXT_TYPE = " TEXT";
@@ -11,11 +10,11 @@ public class RPGContract {
     public static final class AventuraTable implements BaseColumns {
         public static final String TABLE_NAME = "Aventura";
         public static final String COLUMN_NAME_NOME = "Nome";
-        public static final String COLUMN_NAME_DESCRICAO = "Descrição";
+        public static final String COLUMN_NAME_DESCRICAO = "Descricao";
         public static final String COLUMN_NAME_FORCA = "Força";
         public static final String COLUMN_NAME_DESTREZA = "Destreza";
         public static final String COLUMN_NAME_NERVOS = "Nervos";
-        public static final String COLUMN_NAME_CONSTITUICAO = "Constituição";
+        public static final String COLUMN_NAME_CONSTITUICAO = "Constituicao";
         public static final String COLUMN_NAME_MENTE = "Mente";
         public static final String COLUMN_NAME_SYNTH = "Synth";
         public static final String COLUMN_NAME_SABEDORIA = "Sabedoria";
@@ -47,7 +46,7 @@ public class RPGContract {
         public static final String COLUMN_NAME_FORCA = "Força";
         public static final String COLUMN_NAME_DESTREZA = "Destreza";
         public static final String COLUMN_NAME_NERVOS = "Nervos";
-        public static final String COLUMN_NAME_CONSTITUICAO = "Constituição";
+        public static final String COLUMN_NAME_CONSTITUICAO = "Constituicao";
         public static final String COLUMN_NAME_MENTE = "Mente";
         public static final String COLUMN_NAME_SYNTH = "Synth";
         public static final String COLUMN_NAME_SABEDORIA = "Sabedoria";
