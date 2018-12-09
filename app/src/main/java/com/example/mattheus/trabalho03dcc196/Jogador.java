@@ -13,10 +13,13 @@ public class Jogador {
     private String sabedoria;
     private String carisma;
 
+
+    private String id_aventura;
+
     public Jogador() {
     }
 
-    public Jogador(Integer id, String nome, String classe, String forca, String destreza, String nervos, String constituicao, String mente, String synth, String sabedoria, String carisma) {
+    public Jogador(Integer id, String nome, String classe, String forca, String destreza, String nervos, String constituicao, String mente, String synth, String sabedoria, String carisma, String id_aventura) {
         this.id = id;
         this.nome = nome;
         this.classe = classe;
@@ -28,6 +31,7 @@ public class Jogador {
         this.synth = synth;
         this.sabedoria = sabedoria;
         this.carisma = carisma;
+        this.id_aventura = id_aventura;
     }
 
     public Integer getId() {
@@ -74,6 +78,10 @@ public class Jogador {
         return carisma;
     }
 
+    public String getId_aventura() {
+        return id_aventura;
+    }
+
 
     public void setId(Integer id) {
         this.id = id;
@@ -117,6 +125,10 @@ public class Jogador {
 
     public void setCarisma(String carisma) {
         this.carisma = carisma;
+    }
+
+    public void setId_aventura(String id_aventura) {
+        this.id_aventura = id_aventura;
     }
 
 

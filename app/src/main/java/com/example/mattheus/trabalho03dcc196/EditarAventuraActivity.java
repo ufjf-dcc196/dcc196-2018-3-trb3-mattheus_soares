@@ -79,7 +79,6 @@ public class EditarAventuraActivity extends AppCompatActivity {
 
                     setResult(Activity.RESULT_OK, resultado);
                     finish();
-
                 }
             }
         });

@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         AventuraDAO.getInstance().inicializarDBHelper(getApplicationContext());
+        JogadorDAO.getInstance().inicializarDBHelper(getApplicationContext());
 
         btn_cadastrar_aventura = findViewById(R.id.btn_Cadastrar_Aventura);
 
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnAventuraClickListener(new ListarAventurasAdapter.OnAventuraClickListener() {
             @Override
             public void OnAventuraClick(View view, int position) {
-                Integer id_avent = Integer.parseInt(AventuraDAO.getInstance().getAventuras().get(position).getId());
+                Integer id_avent = AventuraDAO.getInstance().getAventuras().get(position).getId();
                 Intent intent = new Intent(MainActivity.this, ListarJogadoresActivity.class);
                 intent.putExtra(MainActivity.ID_AVENTURA,id_avent);
                 startActivityForResult(intent, MainActivity.REQUEST_LISTAR_AVENTURA);
@@ -42,13 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void OnAventuraLongClick(View view, int position) {
-                Integer id_avent = Integer.parseInt(AventuraDAO.getInstance().getAventuras().get(position).getId());
+                Integer id_avent = AventuraDAO.getInstance().getAventuras().get(position).getId();
+
                 AventuraDAO.getInstance().deleteAventura(id_avent);
-                /*
-                *
-                * REMOVER JOGADORES DA AVENTURA
-                *
-                * */
+                JogadorDAO.getInstance().deleteJogadorDaAventura(id_avent);
+
                 adapter.setAventuras(AventuraDAO.getInstance().getAventuras());
                 adapter.notifyItemRemoved(position);
 

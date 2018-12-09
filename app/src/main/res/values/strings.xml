@@ -7,5 +7,5 @@
     <string name="btn_Cadastrar">Cadastrar</string>
     <string name="btn_Editar">Editar</string>
     <string name="btn_Editar_Aventura">Editar Aventura</string>
-    <string name="btn_Cadastrar_Jogador" >Cadastrar Jogador</string>
+    <string name="btn_Cadastrar_Jogador">Cadastrar Jogador</string>
 </resources>

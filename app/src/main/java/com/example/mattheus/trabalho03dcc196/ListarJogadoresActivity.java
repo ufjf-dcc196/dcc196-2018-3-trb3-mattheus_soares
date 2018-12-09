@@ -3,6 +3,8 @@ package com.example.mattheus.trabalho03dcc196;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +20,8 @@ public class ListarJogadoresActivity extends AppCompatActivity {
     public static final String ID_AVENTURA_LST = "Posição da Aventura";
     public static final int REQUEST_EDITAR_AVENTURA= 1;
     public static final int REQUEST_CADASTRAR_JOGADOR= 2;
+    private RecyclerView recyclerView;
+    private static ListarJogadoresAdapter adapter;
 
 
     @Override
@@ -31,6 +35,10 @@ public class ListarJogadoresActivity extends AppCompatActivity {
         id_aventura = bundleResult.getInt(MainActivity.ID_AVENTURA);
         aventura = AventuraDAO.getInstance().getAventuraByID(id_aventura);
 
+        recyclerView = findViewById(R.id.rcl_jogadores);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ListarJogadoresAdapter(JogadorDAO.getInstance().getJogadoresDaAventura(id_aventura));
+        recyclerView.setAdapter(adapter);
 
         lbl_nome = findViewById(R.id.lbl_avent_nome);
         lbl_desc = findViewById(R.id.lbl_avent_desc);
@@ -48,16 +56,23 @@ public class ListarJogadoresActivity extends AppCompatActivity {
 
         updateStatus();
 
-        lbl_nome.setText("Nome: "+aventura.getNome());
-        lbl_desc.setText("Descrição: "+aventura.getDescricao());
-        lbl_forca.setText("Força: "+aventura.getForca());
-        lbl_destreza.setText("Destreza: "+aventura.getDestreza());
-        lbl_nervos.setText("Nervos: "+aventura.getNervos());
-        lbl_const.setText("Constituição: "+aventura.getConstituicao());
-        lbl_mente.setText("Mente: "+aventura.getMente());
-        lbl_synth.setText("Synth: "+aventura.getSynth());
-        lbl_sabedoria.setText("Sabedoria: "+aventura.getSabedoria());
-        lbl_carisma.setText("Carisma: "+aventura.getCarisma());
+        adapter.setOnJogadorClickListener(new ListarJogadoresAdapter.OnJogadorClickListener() {
+            @Override
+            public void OnJogadorClick(View view, int position) {
+
+            }
+
+
+            @Override
+            public void OnJogadorLongClick(View view, int position) {
+                Integer id_jog = JogadorDAO.getInstance().getJogadores().get(position).getId();
+                JogadorDAO.getInstance().deleteJogador(id_jog);
+
+                adapter.setJogadores(JogadorDAO.getInstance().getJogadoresDaAventura(id_aventura));
+                adapter.notifyItemRemoved(position);
+            }
+        });
+
 
 
         btn_editar_aventura.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +97,16 @@ public class ListarJogadoresActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+
+    }
+
     public static void updateStatus(){
+
+        adapter.notifyDataSetChanged();
 
         lbl_nome.setText("Nome: "+aventura.getNome());
         lbl_desc.setText("Descrição: "+aventura.getDescricao());

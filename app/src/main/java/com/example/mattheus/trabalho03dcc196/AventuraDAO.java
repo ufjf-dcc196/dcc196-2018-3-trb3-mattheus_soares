@@ -60,7 +60,7 @@ public class AventuraDAO {
         if (cursor.moveToFirst()) {
             do {
                 Aventura aux = new Aventura();
-                aux.setId(cursor.getString(id_Aventura_ID));
+                aux.setId(Integer.parseInt(cursor.getString(id_Aventura_ID)));
                 aux.setNome(cursor.getString(id_Aventura_Nome));
                 aux.setDescricao(cursor.getString(id_Aventura_Descricao));
                 aux.setForca(cursor.getString(id_Aventura_Forca));
@@ -101,7 +101,7 @@ public class AventuraDAO {
         cursor = db.rawQuery(query , new String[]{String.valueOf(ID_Aventura)});
 
         if(cursor.moveToFirst()){
-            aventura.setId(cursor.getString(id_Aventura_ID));
+            aventura.setId(Integer.parseInt(cursor.getString(id_Aventura_ID)));
             aventura.setNome(cursor.getString(id_Aventura_Nome));
             aventura.setDescricao(cursor.getString(id_Aventura_Descricao));
             aventura.setForca(cursor.getString(id_Aventura_Forca));

@@ -1,7 +1,7 @@
 package com.example.mattheus.trabalho03dcc196;
 
 public class Aventura {
-    private String id;
+    private Integer id;
     private String nome;
     private String descricao;
     private String forca;
@@ -29,7 +29,7 @@ public class Aventura {
         this.carisma = carisma;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -74,7 +74,7 @@ public class Aventura {
     }
 
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

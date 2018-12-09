@@ -20,7 +20,8 @@
         <activity android:name=".EditarAventuraActivity" />
         <activity android:name=".ListarJogadoresActivity" />
         <activity android:name=".CadastrarJogadorActivity" />
-        <activity android:name=".EditarJogadorActivity"></activity>
+        <activity android:name=".EditarJogadorActivity" />
+        <activity android:name=".DetalhesJogadorActivity"></activity>
     </application>
 
 </manifest>

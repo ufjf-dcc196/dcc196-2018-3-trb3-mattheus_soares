@@ -1,5 +1,6 @@
 package com.example.mattheus.trabalho03dcc196;
 
+
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,60 +11,63 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ListarAventurasAdapter extends RecyclerView.Adapter<ListarAventurasAdapter.ViewHolder> {
+public class ListarJogadoresAdapter extends RecyclerView.Adapter<ListarJogadoresAdapter.ViewHolder> {
 
-    private ArrayList<Aventura> aventuras;
-    private OnAventuraClickListener listener;
+    private ArrayList<Jogador> jogadores;
+    private OnJogadorClickListener listener;
 
-    public interface OnAventuraClickListener {
-        void OnAventuraClick(View view, int position);
-        void OnAventuraLongClick(View view, int position);
+    public interface OnJogadorClickListener {
+        void OnJogadorClick(View view, int position);
+        void OnJogadorLongClick(View view, int position);
     }
 
 
-    public void setOnAventuraClickListener(OnAventuraClickListener listener) {
+    public void setOnJogadorClickListener(OnJogadorClickListener listener) {
         this.listener = listener;
     }
 
-    public void setAventuras(ArrayList<Aventura> avent){
-        this.aventuras = avent;
+    public void setJogadores(ArrayList<Jogador> jog){
+        this.jogadores = jog;
         notifyDataSetChanged();
     }
 
-    public ListarAventurasAdapter(ArrayList<Aventura>  aventuras){
-        this.aventuras = aventuras;
+    public ListarJogadoresAdapter(ArrayList<Jogador>  jogadores){
+        this.jogadores = jogadores;
     }
 
     @NonNull
     @Override
-    public ListarAventurasAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ListarJogadoresAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Context context = viewGroup.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View lstAventuraView;
-        lstAventuraView = inflater.inflate(R.layout.recycle_view_aventuras, viewGroup, false);
-        ViewHolder holderView = new ViewHolder(lstAventuraView);
+        View lstJogadorView;
+        lstJogadorView = inflater.inflate(R.layout.recycle_view_jogadores, viewGroup, false);
+        ViewHolder holderView = new ViewHolder(lstJogadorView);
         return holderView;
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListarAventurasAdapter.ViewHolder viewHolder, int i) {
-        viewHolder.txt_lst_aventura.setText(aventuras.get(i).getNome());
+    public void onBindViewHolder(@NonNull ListarJogadoresAdapter.ViewHolder viewHolder, int i) {
+        viewHolder.txt_lst_nome_jogador.setText(jogadores.get(i).getNome());
+        viewHolder.txt_lst_classe_jogador.setText(jogadores.get(i).getClasse());
     }
 
     @Override
     public int getItemCount() {
-        return aventuras.size();
+        return jogadores.size();
     }
 
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        public TextView txt_lst_aventura;
+        public TextView txt_lst_nome_jogador;
+        public TextView txt_lst_classe_jogador;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            txt_lst_aventura = itemView.findViewById(R.id.txt_lst_aventura);
+            txt_lst_nome_jogador = itemView.findViewById(R.id.txt_lst_nome_jogador);
+            txt_lst_classe_jogador = itemView.findViewById(R.id.txt_lst_classe_jogador);
 
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -72,7 +76,7 @@ public class ListarAventurasAdapter extends RecyclerView.Adapter<ListarAventuras
                     if (listener != null){
                         int position = getAdapterPosition();
                         if(position != RecyclerView.NO_POSITION){
-                            listener.OnAventuraLongClick(view, position);
+                            listener.OnJogadorLongClick(view, position);
                         }
                     }
                     return false;
@@ -86,7 +90,7 @@ public class ListarAventurasAdapter extends RecyclerView.Adapter<ListarAventuras
                     if (listener!=null) {
                         int position = getAdapterPosition();
                         if(position != RecyclerView.NO_POSITION) {
-                            listener.OnAventuraClick(v, position);
+                            listener.OnJogadorClick(v, position);
                         }
                     }
                 }
@@ -99,7 +103,7 @@ public class ListarAventurasAdapter extends RecyclerView.Adapter<ListarAventuras
             if (listener!=null){
                 int position = getAdapterPosition();
                 if(position!= RecyclerView.NO_POSITION){
-                    listener.OnAventuraClick(v, position);
+                    listener.OnJogadorClick(v, position);
                 }
             }
         }
@@ -110,7 +114,7 @@ public class ListarAventurasAdapter extends RecyclerView.Adapter<ListarAventuras
             if (listener!=null){
                 int position = getAdapterPosition();
                 if(position!= RecyclerView.NO_POSITION){
-                    listener.OnAventuraLongClick(v, position);
+                    listener.OnJogadorLongClick(v, position);
                 }
             }
             return true;
