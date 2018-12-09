@@ -185,7 +185,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_salvar_aventura"
+        android:id="@+id/btn_salvar_edt_aventura"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

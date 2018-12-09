@@ -7,13 +7,14 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class CadastrarAventuraActivity extends AppCompatActivity {
 
     private Button btn_cadastrar_aventura;
-    private TextView txt_nome, txt_desc, txt_forca, txt_destreza, txt_nervos, txt_const, txt_mente, txt_synth, txt_sabedoria, txt_carisma;
+    private EditText txt_nome, txt_desc, txt_forca, txt_destreza, txt_nervos, txt_const, txt_mente, txt_synth, txt_sabedoria, txt_carisma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +73,6 @@ public class CadastrarAventuraActivity extends AppCompatActivity {
                     finish();
 
                 }
-
-
-
             }
         });
     }

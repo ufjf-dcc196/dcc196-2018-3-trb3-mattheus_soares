@@ -122,6 +122,7 @@ public class AventuraDAO {
     public void insertAventura(Aventura aventura){
         SQLiteDatabase db = rpgdbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
+
         cv.put(RPGContract.AventuraTable.COLUMN_NAME_NOME,aventura.getNome());
         cv.put(RPGContract.AventuraTable.COLUMN_NAME_DESCRICAO,aventura.getDescricao());
         cv.put(RPGContract.AventuraTable.COLUMN_NAME_FORCA,aventura.getForca());
@@ -132,6 +133,7 @@ public class AventuraDAO {
         cv.put(RPGContract.AventuraTable.COLUMN_NAME_SYNTH,aventura.getSynth());
         cv.put(RPGContract.AventuraTable.COLUMN_NAME_SABEDORIA,aventura.getSabedoria());
         cv.put(RPGContract.AventuraTable.COLUMN_NAME_CARISMA,aventura.getCarisma());
+
         db.insert(RPGContract.AventuraTable.TABLE_NAME,null,cv);
     }
 
@@ -140,7 +142,7 @@ public class AventuraDAO {
         db.delete(RPGContract.AventuraTable.TABLE_NAME,"_ID = ?", new String[]{String.valueOf(ID_Aventura)});
     }
 
-    public void updateAventura(Aventura aventura){
+    public void updateAventura(Aventura aventura,Integer ID_Aventura){
         SQLiteDatabase db = rpgdbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -155,7 +157,7 @@ public class AventuraDAO {
         cv.put(RPGContract.AventuraTable.COLUMN_NAME_SABEDORIA,aventura.getSabedoria());
         cv.put(RPGContract.AventuraTable.COLUMN_NAME_CARISMA,aventura.getCarisma());
 
-        db.update(RPGContract.AventuraTable.TABLE_NAME,cv,"_ID = ?", new String[]{String.valueOf(aventura.getId())});
+        db.update(RPGContract.AventuraTable.TABLE_NAME,cv,"_ID = ?", new String[]{String.valueOf(ID_Aventura)});
     }
 
 }

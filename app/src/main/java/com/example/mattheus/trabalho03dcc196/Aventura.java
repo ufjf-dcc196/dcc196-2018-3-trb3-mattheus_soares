@@ -1,7 +1,5 @@
 package com.example.mattheus.trabalho03dcc196;
 
-import java.util.ArrayList;
-
 public class Aventura {
     private String id;
     private String nome;
@@ -14,18 +12,11 @@ public class Aventura {
     private String synth;
     private String sabedoria;
     private String carisma;
-    private ArrayList<Jogador> jogadores;
 
     public Aventura() {
     }
 
-    public Aventura(String id, String nome, String descricao) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-    }
-
-    public Aventura( String nome, String descricao, String forca, String destreza, String nervos, String constituicao, String mente, String synth, String sabedoria, String carisma) {
+    public Aventura(String nome, String descricao, String forca, String destreza, String nervos, String constituicao, String mente, String synth, String sabedoria, String carisma) {
         this.nome = nome;
         this.descricao = descricao;
         this.forca = forca;
@@ -36,22 +27,6 @@ public class Aventura {
         this.synth = synth;
         this.sabedoria = sabedoria;
         this.carisma = carisma;
-        this.jogadores = new ArrayList<>();
-    }
-
-    public Aventura(String id, String nome, String descricao, String forca, String destreza, String nervos, String constituicao, String mente, String synth, String sabedoria, String carisma) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.forca = forca;
-        this.destreza = destreza;
-        this.nervos = nervos;
-        this.constituicao = constituicao;
-        this.mente = mente;
-        this.synth = synth;
-        this.sabedoria = sabedoria;
-        this.carisma = carisma;
-        this.jogadores = new ArrayList<>();
     }
 
     public String getId() {
@@ -98,9 +73,6 @@ public class Aventura {
         return carisma;
     }
 
-    public ArrayList<Jogador> getJogadores() {
-        return jogadores;
-    }
 
     public void setId(String id) {
         this.id = id;
@@ -146,8 +118,5 @@ public class Aventura {
         this.carisma = carisma;
     }
 
-    public void setJogadores(ArrayList<Jogador> jogadores) {
-        this.jogadores = jogadores;
-    }
 }
 

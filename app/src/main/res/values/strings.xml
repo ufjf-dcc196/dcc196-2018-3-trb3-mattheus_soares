@@ -1,9 +1,11 @@
 <resources>
-    <string name="app_name">Trabalho03DCC196</string>
+    <string name="app_name">RPG Cyberpunk</string>
     <string name="btn_Cadastrar_Aventura">Cadastrar Nova Aventura</string>
     <string name="lbl_Nome_Aventura">Nome:</string>
     <string name="lbl_Desc_Aventura">Descrição:</string>
     <string name="lbl_Forca_Aventura">Força:</string>
     <string name="btn_Cadastrar">Cadastrar</string>
     <string name="btn_Editar">Editar</string>
+    <string name="btn_Editar_Aventura">Editar Aventura</string>
+    <string name="btn_Cadastrar_Jogador" >Cadastrar Jogador</string>
 </resources>

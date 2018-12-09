@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private static ListarAventurasAdapter adapter;
     private Button btn_cadastrar_aventura;
     private RecyclerView recyclerView;
-    public static final String POSICAO_AVENTURA = "Posição da Aventura";
+    public static final String ID_AVENTURA = "Posição da Aventura";
     public static final int REQUEST_CADASTRO_AVENTURA= 1;
     public static final int REQUEST_LISTAR_AVENTURA= 2;
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             public void OnAventuraClick(View view, int position) {
                 Integer id_avent = Integer.parseInt(AventuraDAO.getInstance().getAventuras().get(position).getId());
                 Intent intent = new Intent(MainActivity.this, ListarJogadoresActivity.class);
-                intent.putExtra(MainActivity.POSICAO_AVENTURA,id_avent);
+                intent.putExtra(MainActivity.ID_AVENTURA,id_avent);
                 startActivityForResult(intent, MainActivity.REQUEST_LISTAR_AVENTURA);
 
             }

@@ -16,12 +16,6 @@ public class Jogador {
     public Jogador() {
     }
 
-    public Jogador(Integer id, String nome, String classe) {
-        this.id = id;
-        this.nome = nome;
-        this.classe = classe;
-    }
-
     public Jogador(Integer id, String nome, String classe, String forca, String destreza, String nervos, String constituicao, String mente, String synth, String sabedoria, String carisma) {
         this.id = id;
         this.nome = nome;
