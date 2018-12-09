@@ -5,4 +5,5 @@
     <string name="lbl_Desc_Aventura">Descrição:</string>
     <string name="lbl_Forca_Aventura">Força:</string>
     <string name="btn_Cadastrar">Cadastrar</string>
+    <string name="btn_Editar">Editar</string>
 </resources>
