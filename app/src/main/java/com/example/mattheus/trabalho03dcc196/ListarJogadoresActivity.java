@@ -9,11 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ListarJogadoresActivity extends AppCompatActivity {
 
     private static Aventura aventura;
     private Integer id_aventura;
     private static TextView lbl_nome, lbl_desc, lbl_forca, lbl_destreza, lbl_nervos, lbl_const, lbl_mente, lbl_synth, lbl_sabedoria, lbl_carisma;
+    private TextView lbl_avent_total_jogadores;
     private Button btn_editar_aventura, btn_cadastrar_jogador;
     public static final String ID_AVENTURA_LST = "ID da Aventura";
     public static final String ID_JOGADOR_LST = "ID do Jogador";
@@ -106,6 +109,43 @@ public class ListarJogadoresActivity extends AppCompatActivity {
         super.onResume();
         adapter.notifyDataSetChanged();
 
+    }
+    private void calcularAtributosJogadores(){
+        final Intent intent = getIntent();
+        Bundle bundleResult = intent.getExtras();
+        id_aventura = bundleResult.getInt(MainActivity.ID_AVENTURA);
+        ArrayList<Jogador> jogadores = JogadorDAO.getInstance().getJogadoresDaAventura(id_aventura);
+        Integer valor_forca = 0 ,
+                valor_destreza = 0,
+                valor_nervos = 0,
+                valor_const = 0,
+                valor_mente = 0,
+                valor_synth = 0,
+                valor_sabedoria = 0,
+                valor_carisma = 0;
+
+        if(!jogadores.isEmpty()){
+            for(int i=0; i< jogadores.size();i++){
+                valor_forca += Integer.parseInt(jogadores.get(i).getForca());
+                valor_destreza += Integer.parseInt(jogadores.get(i).getDestreza());
+                valor_nervos += Integer.parseInt(jogadores.get(i).getNervos());
+                valor_const += Integer.parseInt(jogadores.get(i).getConstituicao());
+                valor_mente += Integer.parseInt(jogadores.get(i).getMente());
+                valor_synth += Integer.parseInt(jogadores.get(i).getSynth());
+                valor_sabedoria += Integer.parseInt(jogadores.get(i).getSabedoria());
+                valor_carisma += Integer.parseInt(jogadores.get(i).getCarisma());
+            }
+        }
+
+        lbl_avent_total_jogadores = findViewById(R.id.txt_avent_total_jogadores);
+        lbl_avent_total_jogadores.setText("Total dos Atributos dos Jogadores: Força - "+valor_forca.toString()+", " +
+                "Destreza - "+valor_destreza.toString()+
+                "Nervos - "+valor_nervos.toString()+
+                "Constituição - "+valor_const.toString()+
+                "Mente - "+valor_mente.toString()+
+                "Synth - "+valor_synth.toString()+
+                "Sabedoria - "+valor_sabedoria.toString()+
+                "Carisma - "+valor_carisma.toString());
     }
 
     public static void updateStatus(){
