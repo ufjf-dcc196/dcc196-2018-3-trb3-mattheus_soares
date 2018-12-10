@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private static ListarAventurasAdapter adapter;
     private Button btn_cadastrar_aventura;
     private RecyclerView recyclerView;
-    public static final String ID_AVENTURA = "Posição da Aventura";
+    public static final String ID_AVENTURA = "ID da Aventura";
     public static final int REQUEST_CADASTRO_AVENTURA= 1;
     public static final int REQUEST_LISTAR_AVENTURA= 2;
 

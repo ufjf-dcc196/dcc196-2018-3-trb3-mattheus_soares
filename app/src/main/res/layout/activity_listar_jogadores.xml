@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/lbl_avent_nome"
+        android:id="@+id/lbl_jogador_nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/lbl_avent_desc"
+        android:id="@+id/lbl_jogador_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -58,13 +58,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_avent_nome"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_jogador_nome"
         app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
@@ -75,8 +75,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_avent_total"
-        app:layout_constraintVertical_bias="0.060000002">
+        app:layout_constraintTop_toBottomOf="@+id/txt_avent_desc_atributo"
+        app:layout_constraintVertical_bias="0.00999999">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -165,7 +165,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/lbl_avent_total"
+        android:id="@+id/txt_avent_desc_atributo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -177,11 +177,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_avent_desc"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_jogador_desc"
         app:layout_constraintVertical_bias="0.018" />
 
     <Button
-        android:id="@+id/btn_Editar_Aventura"
+        android:id="@+id/btn_Editar_Jogador"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -200,7 +200,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rcl_jogadores"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="125dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -210,8 +210,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_avent_total_jogadores"
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
         android:id="@+id/btn_Cadastrar_Jogador"
@@ -227,6 +227,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Editar_Aventura" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Editar_Jogador" />
+
+    <TextView
+        android:id="@+id/txt_avent_total_jogadores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Total dos Atributos dos Jogadores:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

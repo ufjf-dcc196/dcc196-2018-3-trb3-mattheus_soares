@@ -5,11 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ListarJogadoresActivity extends AppCompatActivity {
 
@@ -17,9 +15,11 @@ public class ListarJogadoresActivity extends AppCompatActivity {
     private Integer id_aventura;
     private static TextView lbl_nome, lbl_desc, lbl_forca, lbl_destreza, lbl_nervos, lbl_const, lbl_mente, lbl_synth, lbl_sabedoria, lbl_carisma;
     private Button btn_editar_aventura, btn_cadastrar_jogador;
-    public static final String ID_AVENTURA_LST = "Posição da Aventura";
+    public static final String ID_AVENTURA_LST = "ID da Aventura";
+    public static final String ID_JOGADOR_LST = "ID do Jogador";
     public static final int REQUEST_EDITAR_AVENTURA= 1;
     public static final int REQUEST_CADASTRAR_JOGADOR= 2;
+    public static final int REQUEST_LISTAR_JOGADOR= 3;
     private RecyclerView recyclerView;
     private static ListarJogadoresAdapter adapter;
 
@@ -40,8 +40,8 @@ public class ListarJogadoresActivity extends AppCompatActivity {
         adapter = new ListarJogadoresAdapter(JogadorDAO.getInstance().getJogadoresDaAventura(id_aventura));
         recyclerView.setAdapter(adapter);
 
-        lbl_nome = findViewById(R.id.lbl_avent_nome);
-        lbl_desc = findViewById(R.id.lbl_avent_desc);
+        lbl_nome = findViewById(R.id.lbl_jogador_nome);
+        lbl_desc = findViewById(R.id.lbl_jogador_desc);
         lbl_forca = findViewById(R.id.lbl_avent_forca);
         lbl_destreza = findViewById(R.id.lbl_avent_destreza);
         lbl_nervos = findViewById(R.id.lbl_avent_nervos);
@@ -51,7 +51,7 @@ public class ListarJogadoresActivity extends AppCompatActivity {
         lbl_sabedoria = findViewById(R.id.lbl_avent_sabedoria);
         lbl_carisma = findViewById(R.id.lbl_avent_carisma);
 
-        btn_editar_aventura = findViewById(R.id.btn_Editar_Aventura);
+        btn_editar_aventura = findViewById(R.id.btn_Editar_Jogador);
         btn_cadastrar_jogador = findViewById(R.id.btn_Cadastrar_Jogador);
 
         updateStatus();
@@ -59,6 +59,10 @@ public class ListarJogadoresActivity extends AppCompatActivity {
         adapter.setOnJogadorClickListener(new ListarJogadoresAdapter.OnJogadorClickListener() {
             @Override
             public void OnJogadorClick(View view, int position) {
+                Integer id_jogador = JogadorDAO.getInstance().getJogadores().get(position).getId();
+                Intent intent = new Intent(ListarJogadoresActivity.this, DetalhesJogadorActivity.class);
+                intent.putExtra(ListarJogadoresActivity.ID_JOGADOR_LST,id_jogador);
+                startActivityForResult(intent, ListarJogadoresActivity.REQUEST_LISTAR_JOGADOR);
 
             }
 

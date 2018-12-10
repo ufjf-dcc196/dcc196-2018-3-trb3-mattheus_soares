@@ -83,7 +83,7 @@ public class EditarAventuraActivity extends AppCompatActivity {
             }
         });
     }
-    public void setData(){
+    private void setData(){
         txt_nome.setText(aventura.getNome());
         txt_desc.setText(aventura.getDescricao());
         txt_forca.setText(aventura.getForca());
