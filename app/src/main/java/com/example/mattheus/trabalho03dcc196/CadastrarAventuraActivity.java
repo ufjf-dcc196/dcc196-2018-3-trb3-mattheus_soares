@@ -21,6 +21,7 @@ public class CadastrarAventuraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_aventura);
 
+
         txt_nome = findViewById(R.id.txt_nome_aventura);
         txt_desc = findViewById(R.id.txt_desc_aventura);
         txt_forca = findViewById(R.id.txt_forca_aventura);

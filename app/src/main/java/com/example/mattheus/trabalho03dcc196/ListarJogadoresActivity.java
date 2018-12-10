@@ -43,8 +43,8 @@ public class ListarJogadoresActivity extends AppCompatActivity {
         adapter = new ListarJogadoresAdapter(JogadorDAO.getInstance().getJogadoresDaAventura(id_aventura));
         recyclerView.setAdapter(adapter);
 
-        lbl_nome = findViewById(R.id.lbl_jogador_nome);
-        lbl_desc = findViewById(R.id.lbl_jogador_desc);
+        lbl_nome = findViewById(R.id.lbl_avent_nome);
+        lbl_desc = findViewById(R.id.lbl_avent_desc);
         lbl_forca = findViewById(R.id.lbl_avent_forca);
         lbl_destreza = findViewById(R.id.lbl_avent_destreza);
         lbl_nervos = findViewById(R.id.lbl_avent_nervos);
@@ -110,45 +110,8 @@ public class ListarJogadoresActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
 
     }
-    private void calcularAtributosJogadores(){
-        final Intent intent = getIntent();
-        Bundle bundleResult = intent.getExtras();
-        id_aventura = bundleResult.getInt(MainActivity.ID_AVENTURA);
-        ArrayList<Jogador> jogadores = JogadorDAO.getInstance().getJogadoresDaAventura(id_aventura);
-        Integer valor_forca = 0 ,
-                valor_destreza = 0,
-                valor_nervos = 0,
-                valor_const = 0,
-                valor_mente = 0,
-                valor_synth = 0,
-                valor_sabedoria = 0,
-                valor_carisma = 0;
-
-        if(!jogadores.isEmpty()){
-            for(int i=0; i< jogadores.size();i++){
-                valor_forca += Integer.parseInt(jogadores.get(i).getForca());
-                valor_destreza += Integer.parseInt(jogadores.get(i).getDestreza());
-                valor_nervos += Integer.parseInt(jogadores.get(i).getNervos());
-                valor_const += Integer.parseInt(jogadores.get(i).getConstituicao());
-                valor_mente += Integer.parseInt(jogadores.get(i).getMente());
-                valor_synth += Integer.parseInt(jogadores.get(i).getSynth());
-                valor_sabedoria += Integer.parseInt(jogadores.get(i).getSabedoria());
-                valor_carisma += Integer.parseInt(jogadores.get(i).getCarisma());
-            }
-        }
-
-        lbl_avent_total_jogadores = findViewById(R.id.txt_avent_total_jogadores);
-        lbl_avent_total_jogadores.setText("Total dos Atributos dos Jogadores: Força - "+valor_forca.toString()+", " +
-                "Destreza - "+valor_destreza.toString()+
-                "Nervos - "+valor_nervos.toString()+
-                "Constituição - "+valor_const.toString()+
-                "Mente - "+valor_mente.toString()+
-                "Synth - "+valor_synth.toString()+
-                "Sabedoria - "+valor_sabedoria.toString()+
-                "Carisma - "+valor_carisma.toString());
-    }
-
     public static void updateStatus(){
+
 
         adapter.notifyDataSetChanged();
 

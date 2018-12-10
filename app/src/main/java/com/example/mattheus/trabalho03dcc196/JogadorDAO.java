@@ -200,6 +200,7 @@ public class JogadorDAO {
         db.delete(RPGContract.JogadorTable.TABLE_NAME,RPGContract.JogadorTable.COLUMN_NAME_ID_AVENTURA+" = ?", new String[]{String.valueOf(ID_Aventura)});
     }
 
+    
     public void updateJogador(Jogador jogador, Integer id_jogador) {
         SQLiteDatabase db = rpgdbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
